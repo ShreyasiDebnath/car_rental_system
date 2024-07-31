@@ -125,15 +125,13 @@ class RentalSystem {
     private List<Vehicle> vehicles;
     private List<Customer> customers;
     private List<Rental> rentals;
-    private int customerIdCounter;  // Counter for generating customer IDs
-
+    private int customerIdCounter;
     public RentalSystem() {
         vehicles = new ArrayList<>();
         customers = new ArrayList<>();
         rentals = new ArrayList<>();
-        customerIdCounter = 1; // Start customer ID from 1
+        customerIdCounter = 1;
     }
-
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
     }
@@ -144,7 +142,7 @@ class RentalSystem {
 
     public void registerCustomer() {
         Scanner sc = new Scanner(System.in);
-        String customerId = "C" + customerIdCounter++; // Generate unique customer ID
+        String customerId = "C" + customerIdCounter++;
         System.out.println("Generated customer ID: " + customerId);
         System.out.println("Enter customer name:");
         String customerName = sc.nextLine();
@@ -152,7 +150,7 @@ class RentalSystem {
         String customerEmail = sc.nextLine();
         System.out.println("Enter customer phone number:");
         long customerPhone = sc.nextLong();
-        sc.nextLine(); // Consume newline
+        sc.nextLine();
         Customer newCustomer = new Customer(customerId, customerName, customerEmail, customerPhone);
         addCustomer(newCustomer);
         System.out.println("Customer registered successfully.");
@@ -249,7 +247,7 @@ class RentalSystem {
             System.out.println("3. Return a Vehicle");
             System.out.println("4. Exit");
             int choice = sc.nextInt();
-            sc.nextLine(); // Consume newline
+            sc.nextLine();
             switch (choice) {
                 case 1:
                     registerCustomer();
@@ -281,7 +279,7 @@ class RentalSystem {
                     }
                     System.out.println("Enter number of rental days:");
                     int days = sc.nextInt();
-                    sc.nextLine(); // Consume newline
+                    sc.nextLine();
                     rentVehicle(customer, vehicleToRent, days);
                     break;
                 case 3:
